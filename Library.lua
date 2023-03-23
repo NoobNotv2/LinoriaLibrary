@@ -2047,12 +2047,15 @@ do
             Values = Info.UseValuesAsValue and GetDictKeys(Info.Values) or Info.Values;
             Value = Info.UseValuesAsValue and Info.Values or (Info.Multi and {} or nil);
             UseNilValue = Info.UseNilValue,
+            ReturnFalseValues = Info.ReturnFalseValues,
             Multi = Info.Multi;
             Type = 'Dropdown';
             SpecialType = Info.SpecialType; -- can be either 'Player' or 'Team'
             Callback = Info.Callback or function(Value) end;
         };
-
+        if Info.ReturnFalseValues ~= nil then -- Could be done a different way
+            Dropdown.Value = Info.UseValuesAsValue and Info.Values or (Info.Multi and {} or false);
+        end
         local Groupbox = self;
         local Container = Groupbox.Container;
 
