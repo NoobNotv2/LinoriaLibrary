@@ -1,3 +1,5 @@
+-- Replace all of booting library to this script 
+local repo = 'https://raw.githubusercontent.com/NoobNotv2/LinoriaLibrary/main/'
 repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character
 if identifyexecutor() ~= "Synapse X" then
     local m = Instance.new("Message", game.CoreGui)
@@ -24,3 +26,6 @@ if identifyexecutor() ~= "Synapse X" then
         end
     end
 end
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
